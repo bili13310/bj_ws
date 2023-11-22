@@ -1,7 +1,4 @@
-N = list(i for i in range(5))
-M = N
+words = input().upper()
+A = list(set(words))
 
-M[0] = N[1]
-
-print(M)
-print(N)
+print(A)
