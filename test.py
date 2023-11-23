@@ -1,4 +1,5 @@
-words = input().upper()
-A = list(set(words))
+S = str(input())
+A = len(S)
 
-print(A)
+for i in S:
+    print(i(0))
