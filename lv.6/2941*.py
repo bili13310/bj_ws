@@ -15,7 +15,7 @@ print(len(S))
 #             A -= 1
 
 #     elif S[i] == "d":
-#         if S[i+1] == "z" and S[i+2] == "=":
+#         if S[i+1] == "z" and S[i+2] == "=ㄴ":
 #             A -= 1
 #         elif S[i+1] == "-":
 #             A -= 1
