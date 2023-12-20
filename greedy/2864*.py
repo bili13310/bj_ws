@@ -1,4 +1,4 @@
-import sys, itertools
+import sys
 
 A, B = map(str, sys.stdin.readline().split())
 
