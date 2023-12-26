@@ -1,20 +1,13 @@
 import sys
 
-input = lambda: sys.stdin.readline().rstrip()
-
-N, M = map(int, input().split())
-buckets = [i for i in range(1, N+1)]
+N, M = map(int, sys.stdin.readline().split())
+buckets = [x+1 for x in range(N)]
 
 for _ in range(M):
-    i, j, k = map(int, input().split())
-    i, j, k = i-1, j-1, k-1
-    buckets = buckets[:i] + buckets[k:j+1] + buckets[i:k] + buckets[j+1:]
+    i, j, k = map(int, sys.stdin.readline().split())
+    buckets = buckets[:i-1] + buckets[k-1:j] + buckets[i-1:k-1] + buckets[j:]
     
 print(*buckets)
-
-
-
-
 
 
 # 1 2 3 4 5 6 7 8 9 10
