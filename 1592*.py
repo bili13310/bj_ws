@@ -2,7 +2,7 @@ import sys
 
 N, M, L = map(int, sys.stdin.readline().split())
 cnt = i = 0
-A = [0 for _ in range(5)]
+A = [0 for _ in range(N)]
 
 while A[i] < M-1:
     A[i] += 1
