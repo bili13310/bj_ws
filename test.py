@@ -1,12 +1,28 @@
 import sys
 
-N, M, L = map(int, sys.stdin.readline().split())
-A = [0]*N
-cnt = i = 0
+h, w = map(int, sys.stdin.readline().split())
+cloud = False
+city = []
+answer = [[0] * w for _ in range(h)]
 
-while A[i] < M-1:
-    A[i] += 1
-    cnt += 1
-    i = (i+L) % N if A[i] % 2 == 1 else (i-L) % N
+for i in range(h):
+    city.append(list(input()))
 
-print(cnt)
+for x in range(h):
+    for y in range(w):
+        if cloud == False and city[x][y] == '.':
+            answer[x][y] = -1
+        elif city[x][y] == 'c':
+            cloud = True
+            num = 1
+            answer[x][y] = 0
+        elif cloud == True and city[x][y] == '.':
+            answer[x][y] = num
+            num += 1
+    cloud = False
+    num = 1
+
+# for a in range(h):
+#     for b in range(w):
+#         print(answer[a][b], end=' ')
+#     print()
