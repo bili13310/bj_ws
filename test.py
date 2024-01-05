@@ -1,28 +1,19 @@
 import sys
 
-h, w = map(int, sys.stdin.readline().split())
-cloud = False
-city = []
-answer = [[0] * w for _ in range(h)]
+A = list(map(int, input()))
+B = list(map(int, input()))
+arr = [0] * 16
 
-for i in range(h):
-    city.append(list(input()))
+for i in range(16):
+    if i % 2 == 1:
+        arr[i] = B[i//2]
+    elif i % 2 == 0:
+        arr[i] = A[i//2]
 
-for x in range(h):
-    for y in range(w):
-        if cloud == False and city[x][y] == '.':
-            answer[x][y] = -1
-        elif city[x][y] == 'c':
-            cloud = True
-            num = 1
-            answer[x][y] = 0
-        elif cloud == True and city[x][y] == '.':
-            answer[x][y] = num
-            num += 1
-    cloud = False
-    num = 1
+while len(arr) != 2:
+    temp = []
+    for j in range(len(arr)-1):
+        temp.append((arr[j] + arr[j+1])%10)
+    arr = temp
 
-# for a in range(h):
-#     for b in range(w):
-#         print(answer[a][b], end=' ')
-#     print()
+print(*arr, sep="")
