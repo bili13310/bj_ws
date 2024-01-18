@@ -24,6 +24,29 @@
 # dfs(s-1)
 # print(cnt)
 
+# from collections import deque
+
+# n = int(input())
+# stones = list(map(int, input().split()))
+# s = int(input())
+# cnt = 0
+# visited = [0] * n
+# deq = deque()
+# deq.append(s-1)
+
+# def dfs(x):
+#     global cnt
+#     visited[x] = 1
+#     cnt += 1
+
+#     for a in [stones[x], -stones[x]]:
+#         X = x + a
+#         if 0 <= X < n and visited[X] == 0:
+#             dfs(X)
+
+# dfs(s-1)
+# print(cnt)
+
 import sys
 from collections import deque
 
