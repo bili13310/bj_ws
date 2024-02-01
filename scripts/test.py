@@ -1,36 +1,34 @@
 from collections import deque
-import sys
-input = sys.stdin.readline
 
-n, m, r = map(int, input().split())
-field = [[] for _ in range(n+1)]
-views = [-1, 0] * (n+1)
-print(views)
+def bfs(X, Y, N, puddles):
+    queue = deque([(0, 0, 0)])  # (x, y, distance)
+    visited = set()
 
-count = 1
-for _ in range(m):
-    u, v = map(int, input().split())
-    field[u].append(v)
-    field[v].append(u)
+    while queue:
+        x, y, distance = queue.popleft()
 
-def bfs(x):
-    global count
-    deq.append(x)
-    views[x][0] = 0
+        if (x, y) == (X, Y):
+            return distance
 
-    while deq:
-        x = deq.popleft()
-        field[x].sort()
+        if (x, y) in visited:
+            continue
 
-        for k in field[x]:
-            if views[k][0] == -1:
-                count += 1
-                views[k] = [views[x][0]+1, count]
-                deq.append(k)
-deq = deque()
-bfs(r)
-ans = 0
+        visited.add((x, y))
 
-for v in views:
-    ans += v[0] * v[1]
-print(ans)
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            nx, ny = x + dx, y + dy
+
+            if 0 <= nx <= X and 0 <= ny <= Y and (nx, ny) not in puddles:
+                queue.append((nx, ny, distance + 1))
+
+    return -1  # 목적지에 도달할 수 없는 경우
+
+# 입력 받기
+X, Y, N = map(int, input().split())
+puddles = set(tuple(map(int, input().split())) for _ in range(N))
+
+# 최단 경로에서 웅덩이를 피하면서 목적지에 도달하는 최소 거리 출력
+result = bfs(X, Y, N, puddles)
+print(result)
+
+
