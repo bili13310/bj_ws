@@ -1,11 +1,11 @@
 #include <iostream>
 
 int main(){
-    int favourite_number;
+    int age = 37;
+    float height = 180.7f;
 
-    std::cout << "1과 100사이에서 가장 좋아하는 숫자를 입력 해보세요: ";
-    std::cin >> favourite_number;
-    std::cout << "Amazing! That's my favorite number too!" << std::endl;
+    std::cout << "my age is " << age << " Hello. " << std::endl;
+    std::cout << "my height is " << height;
 
     return 0;
 }
