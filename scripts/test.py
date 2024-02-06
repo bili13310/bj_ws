@@ -1,6 +1,10 @@
-n = list(input())
+s = input()
+field = []
 
-n.sort(reverse=True)
+for i in range(len(s)):
+    field.append(s[i:])
+print(field)
+field.sort()
 
-for i in range(len(n)):
-    print(n[i], end='')
+for i in range(len(s)):
+    print(field[i])
